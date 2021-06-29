@@ -26,7 +26,7 @@ func ABCIQuery(
 	if err != nil {
 		return nil, err
 	}
-	env.Logger.Info("ABCIQuery", "path", path, "dataLength", len(data), "resultLength", len(result))
+	env.Logger.Info("ABCIQuery", "path", path, "dataLength", len(data.Bytes()), "resultLength", len(resQuery.String()))
 	env.Logger.Debug("ABCIQuery", "path", path, "result", resQuery, "data", data)
 	return &ctypes.ResultABCIQuery{Response: *resQuery}, nil
 }
